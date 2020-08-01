@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST" action="/process">
+        <div class="from-group">
+            <h2>Feedback form</h2>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="radiodiv">Your rating</label>
+            <div id="radiodiv">
+                {% for idx in range(1, 11) %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio{{idx}}" value="{{idx}}">
+                    <label class="form-check-label" for="inlineRadio{{idx}}">{{idx}}</label>
+                </div>
+                {% endfor %}
+            </div>           
+        </div>
+        <div class="form-group">
+            <label class="form-control-labor" for="feedbacktext">Your feedback</label>
+            <textarea class="form-control" id="feedbacktext" placeholder="Please share your feedback" name="feedbackText"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        
+    </form>
+{% endblock content %}
